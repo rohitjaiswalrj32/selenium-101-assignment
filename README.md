@@ -1,33 +1,26 @@
 # Selenium 101 Assignment - TestMu AI
 
-This project covers all three assignment scenarios from the provided PDF using:
+This repository contains the Selenium 101 coding assignment solution built with Python, Pytest, Selenium 4, and the TestMu AI Selenium Grid.
 
-- Python
-- Pytest
-- Selenium 4
-- TestMu AI Selenium Grid
-
-The suite is designed to run in parallel on at least two browser and OS combinations, with TestMu AI capabilities enabled for:
+The suite runs in parallel across two browser and OS combinations and enables the required observability artifacts:
 
 - Network logs
 - Video recording
 - Screenshots (`visual`)
 - Console logs
 
-## Covered Scenarios
+## Scenarios Covered
 
 1. Simple Form Demo
 2. Drag and Drop Sliders
 3. Input Form Submit
 
-## Browser Matrix
-
-By default, the suite runs on:
+## Default Browser Matrix
 
 - `Chrome` on `Windows 10`
 - `Safari` on `macOS Catalina`
 
-You can override this matrix with the `LT_BROWSER_MATRIX` environment variable.
+You can override the browser matrix with the `LT_BROWSER_MATRIX` environment variable.
 
 ## Project Structure
 
@@ -50,9 +43,7 @@ You can override this matrix with the `LT_BROWSER_MATRIX` environment variable.
 pip install -r requirements.txt
 ```
 
-3. Set TestMu AI credentials.
-
-Windows PowerShell:
+3. Set TestMu AI credentials in PowerShell:
 
 ```powershell
 $env:LT_USERNAME="your_testmu_username"
@@ -66,17 +57,15 @@ $env:LT_PROJECT="Selenium 101 Assignment"
 $env:LT_BUILD="Selenium Playground Parallel Suite"
 ```
 
-## Run The Suite In Parallel
+## Run The Suite
 
 ```bash
 pytest -n 2
 ```
 
-This will execute all tests in parallel across the configured browser matrix.
+This executes all scenarios in parallel against the configured browser matrix.
 
 ## Optional Browser Matrix Override
-
-Example:
 
 ```powershell
 $env:LT_BROWSER_MATRIX='[
@@ -87,17 +76,16 @@ $env:LT_BROWSER_MATRIX='[
 
 ## Session IDs
 
-Each test prints its TestMu AI session ID to the console in this format:
+Each test prints its TestMu AI session ID in the console output, for example:
 
 ```text
 TestMu AI session for 'Scenario 1 - Simple Form Demo | Chrome on Windows 10': <session_id>
 ```
 
-Use these session IDs when submitting the assignment on the exam portal.
+Use those session IDs when submitting the assignment.
 
-## Notes For Submission
+## Submission Notes
 
-- Push this project to your GitHub repository.
+- Push the project to your GitHub repository.
 - Share the repository privately with `admin@testmuaicertifications.com`.
-- Run the suite on your TestMu AI account and collect the generated session IDs.
-- Submit both the GitHub repository URL and the TestMu AI session IDs on the exam portal.
+- Submit the GitHub repository URL and the TestMu AI session IDs on the exam portal.
