@@ -1,8 +1,8 @@
 # Selenium 101 Assignment - TestMu AI
 
-This repository contains the Selenium 101 coding assignment solution built with Python, Pytest, Selenium 4, and the TestMu AI Selenium Grid.
+This repository is my Selenium 101 coding assignment submission. The solution is implemented with Python, Pytest, Selenium 4, and the TestMu AI Selenium Grid.
 
-The suite runs in parallel across two browser and OS combinations and enables the required observability artifacts:
+The suite is designed to run in parallel across two browser and OS combinations and enables the required observability artifacts:
 
 - Network logs
 - Video recording
@@ -20,7 +20,7 @@ The suite runs in parallel across two browser and OS combinations and enables th
 - `Chrome` on `Windows 10`
 - `Safari` on `macOS Catalina`
 
-You can override the browser matrix with the `LT_BROWSER_MATRIX` environment variable.
+These are the two browser and OS combinations used for the assignment execution.
 
 ## Project Structure
 
@@ -57,7 +57,7 @@ $env:LT_PROJECT="Selenium 101 Assignment"
 $env:LT_BUILD="Selenium Playground Parallel Suite"
 ```
 
-## Run The Suite
+## Run The Suite In Parallel
 
 ```bash
 pytest -n 2
@@ -76,26 +76,34 @@ $env:LT_BROWSER_MATRIX='[
 
 ## Session IDs
 
-Each test prints its TestMu AI session ID in the console output, for example:
+The following TestMu AI session IDs were generated for the successful assignment run:
 
-```text
-TestMu AI session for 'Scenario 1 - Simple Form Demo | Chrome on Windows 10': <session_id>
-```
-
-Use those session IDs when submitting the assignment.
+- Scenario 1, Chrome on Windows 10: `e3d95e25048442a0ec56b984beba7756`
+- Scenario 1, Safari on macOS Catalina: `D152A444-6F6E-4AEB-98A0-EA3FDC0D1B6E`
+- Scenario 2, Chrome on Windows 10: `f7b0e2aed27ef38a46b1b99a2f20c194`
+- Scenario 2, Safari on macOS Catalina: `59005CED-8B1E-48B4-AEE5-1DA7D2855146`
+- Scenario 3, Chrome on Windows 10: `f908a57ab7a216c039c023568e473a8a`
+- Scenario 3, Safari on macOS Catalina: `C6E6C312-5F5B-4F05-B6EC-B0E094405AD9`
 
 ## Local Screenshots
 
-In addition to the TestMu AI cloud artifacts, the suite also saves local screenshots after each test run under:
+In addition to the TestMu AI cloud artifacts, local screenshots are also available in this repository under:
 
 ```text
 test-results/screenshots/
 ```
 
-This makes it easier to include screenshot files directly in the repository when needed.
+Included screenshot files:
+
+- `scenario-1-simple-form-demo__chrome-windows-10__5f5bbb755513f7dfa1cf40716b823152.png`
+- `scenario-1-simple-form-demo__safari-macos-catalina__B7C272A2-A703-4742-9165-E583F00285B0.png`
+- `scenario-2-drag-and-drop-sliders__chrome-windows-10__f2640d8ad11bf9ec2b6ed5a6b4210942.png`
+- `scenario-2-drag-and-drop-sliders__safari-macos-catalina__170B1515-E9DE-4355-B83C-7C7C5C50B828.png`
+- `scenario-3-input-form-submit__chrome-windows-10__18e8d499cbe3176a489160fd0f58f007.png`
+- `scenario-3-input-form-submit__safari-macos-catalina__A4A6A547-00B2-47A6-89D4-4791B61D4B5B.png`
 
 ## Submission Notes
 
-- Push the project to your GitHub repository.
-- Share the repository privately with `admin@testmuaicertifications.com`.
-- Submit the GitHub repository URL and the TestMu AI session IDs on the exam portal.
+- GitHub repository: `https://github.com/rohitjaiswalrj32/selenium-101-assignment`
+- The repository should be shared privately with `admin@testmuaicertifications.com` as required.
+- The final submission on the exam portal should include the GitHub repository URL and the TestMu AI session IDs listed above.
