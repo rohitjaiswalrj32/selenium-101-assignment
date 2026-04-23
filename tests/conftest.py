@@ -10,7 +10,9 @@ from selenium import webdriver
 GRID_HOST = "hub.lambdatest.com/wd/hub"
 DEFAULT_PROJECT = "Selenium 101 Assignment"
 DEFAULT_BUILD = "Selenium Playground Parallel Suite"
+RESULTS_DIR = Path("test-results")
 SESSION_LOG = Path("test-results/session_ids.txt")
+SCREENSHOT_DIR = Path("test-results/screenshots")
 
 
 @dataclass(frozen=True)
@@ -69,7 +71,8 @@ def pytest_configure(config: pytest.Config) -> None:
         "markers",
         "scenario(name): human readable scenario label for TestMu AI session naming",
     )
-    SESSION_LOG.parent.mkdir(parents=True, exist_ok=True)
+    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+    SCREENSHOT_DIR.mkdir(parents=True, exist_ok=True)
     SESSION_LOG.write_text("", encoding="utf-8")
 
 
@@ -98,6 +101,17 @@ def _build_lt_options(test_name: str, browser_config: BrowserConfig) -> dict:
         "console": True,
         "w3c": True,
     }
+
+
+def _slugify(value: str) -> str:
+    normalized = [
+        character.lower() if character.isalnum() else "-"
+        for character in value.strip()
+    ]
+    slug = "".join(normalized)
+    while "--" in slug:
+        slug = slug.replace("--", "-")
+    return slug.strip("-")
 
 
 def _remote_url() -> str:
@@ -137,6 +151,14 @@ def driver(request: pytest.FixtureRequest, browser_config: BrowserConfig):
         )
     finally:
         session_id = web_driver.session_id
+        screenshot_name = (
+            f"{_slugify(scenario_name)}__{browser_config.id}__{session_id}.png"
+        )
+        screenshot_path = SCREENSHOT_DIR / screenshot_name
+        try:
+            web_driver.save_screenshot(str(screenshot_path))
+        except Exception:
+            pass
         with SESSION_LOG.open("a", encoding="utf-8") as log_file:
             log_file.write(f"{test_name}: {session_id}\n")
         print(

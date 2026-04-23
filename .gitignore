@@ -6,4 +6,7 @@ venv/
 *.pyo
 *.pyd
 .env
-test-results/
+test-results/*
+!test-results/.gitkeep
+!test-results/screenshots/
+!test-results/screenshots/**

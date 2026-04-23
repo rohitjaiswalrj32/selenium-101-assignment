@@ -84,6 +84,16 @@ TestMu AI session for 'Scenario 1 - Simple Form Demo | Chrome on Windows 10': <s
 
 Use those session IDs when submitting the assignment.
 
+## Local Screenshots
+
+In addition to the TestMu AI cloud artifacts, the suite also saves local screenshots after each test run under:
+
+```text
+test-results/screenshots/
+```
+
+This makes it easier to include screenshot files directly in the repository when needed.
+
 ## Submission Notes
 
 - Push the project to your GitHub repository.
